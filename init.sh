@@ -49,10 +49,12 @@ if command -v shopt >/dev/null 2>&1; then
 fi
 
 # NOTE(termie): We're overriding sudo because when using Docker the
-#               containers usually don't have it installed. This may prove
-#               to be a bigger issue in the future but for now it seems to
-#               be working.
-alias sudo=""
+#               containers usually don't have it installed. However,
+#               we are checking to see if it exists first by getting its
+#               version. This way, if it exists, this is a no-op.
+if ! sudo -V; then
+  alias sudo=""
+fi
 
 # Make sure we fail on all errors
 set -e
