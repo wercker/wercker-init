@@ -1,0 +1,6 @@
+name: wercker-init
+version: 2.0.0
+summary: The default step that gets executed at the begin of a build
+category: misc
+tags:
+- wercker-init
